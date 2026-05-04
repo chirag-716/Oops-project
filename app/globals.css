@@ -1,0 +1,500 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Trading Terminal Color System */
+:root {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #94a3b8;
+  --accent-green: #10b981;
+  --accent-red: #ef4444;
+  --accent-blue: #3b82f6;
+  --border-color: #e2e8f0;
+  --glow-green: rgba(16, 185, 129, 0.2);
+  --glow-red: rgba(239, 68, 68, 0.2);
+  --glow-blue: rgba(59, 130, 246, 0.2);
+}
+
+.dark {
+  --bg-primary: #0B1220;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1F2937;
+  --text-primary: #F9FAFB;
+  --text-secondary: #9CA3AF;
+  --text-tertiary: #6B7280;
+  --accent-green: #22C55E;
+  --accent-red: #EF4444;
+  --accent-blue: #3B82F6;
+  --border-color: #374151;
+  --glow-green: #22C55E40;
+  --glow-red: #EF444440;
+  --glow-blue: #3B82F640;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* Glassmorphism Base */
+.glass-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.dark .glass-card {
+  background: rgba(17, 24, 39, 0.8);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Neon Glow Effects */
+.glow-green {
+  box-shadow: 0 0 20px var(--glow-green);
+}
+
+.glow-red {
+  box-shadow: 0 0 20px var(--glow-red);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px var(--glow-blue);
+}
+
+/* Trading Terminal Typography */
+.text-profit {
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+.text-loss {
+  color: var(--accent-red);
+  font-weight: 600;
+}
+
+.text-neutral {
+  color: var(--text-secondary);
+}
+
+/* Button Styles */
+.btn-primary {
+  background: var(--accent-blue);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #2563EB;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--glow-blue);
+}
+
+.btn-success {
+  background: var(--accent-green);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-success:hover {
+  background: #16A34A;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--glow-green);
+}
+
+.btn-danger {
+  background: var(--accent-red);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  background: #DC2626;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--glow-red);
+}
+
+/* Input Styles */
+.trading-input {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.trading-input:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px var(--glow-blue);
+}
+
+.trading-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* Grid Layout */
+.trading-grid {
+  display: grid;
+  gap: 24px;
+  padding: 24px;
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.5s ease-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Enhanced Hover Effects */
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  border-color: var(--accent-blue);
+  transition: all 0.3s ease;
+}
+
+/* Button Interactions */
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px var(--glow-blue);
+}
+
+.btn-success:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px var(--glow-green);
+}
+
+.btn-danger:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px var(--glow-red);
+}
+
+/* Interactive Elements */
+.trading-input:hover {
+  border-color: var(--text-tertiary);
+  background: var(--bg-tertiary);
+}
+
+/* Loading States */
+.loading-skeleton {
+  background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--bg-tertiary) 50%, var(--bg-secondary) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Tooltip Styles */
+.tooltip {
+  position: relative;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 50;
+  border: 1px solid var(--border-color);
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+}
+
+/* Focus States */
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--glow-blue);
+}
+
+/* Success/Error States */
+.success-glow {
+  box-shadow: 0 0 20px var(--glow-green);
+  border-color: var(--accent-green);
+}
+
+.error-glow {
+  box-shadow: 0 0 20px var(--glow-red);
+  border-color: var(--accent-red);
+}
+
+/* Interactive Chart Elements */
+.chart-point {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.chart-point:hover {
+  r: 6;
+  fill: var(--accent-blue);
+}
+
+/* Table Row Hover */
+.table-row-hover:hover {
+  background: rgba(59, 130, 246, 0.1);
+  transform: scale(1.01);
+  transition: all 0.2s ease;
+}
+
+/* Mobile Touch Feedback */
+@media (hover: none) {
+  .btn-primary:active,
+  .btn-success:active,
+  .btn-danger:active {
+    transform: scale(0.95);
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection Styles */
+::selection {
+  background: var(--accent-blue);
+  color: white;
+}
+
+/* Scrollbar Hover Effects */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-blue);
+  cursor: pointer;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom styles for trading dashboard */
+.price-up {
+  color: #10b981;
+}
+
+.price-down {
+  color: #ef4444;
+}
+
+.price-neutral {
+  color: #6b7280;
+}
+
+.trading-card {
+  @apply bg-white/95 backdrop-blur-sm rounded-lg shadow-xl p-6 border border-blue-200/50;
+}
+
+.trading-button {
+  @apply px-4 py-2 rounded-md font-medium transition-colors;
+}
+
+.trading-button-primary {
+  @apply bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors font-medium shadow-lg hover:shadow-xl;
+}
+
+.trading-button-success {
+  @apply bg-green-600 text-white hover:bg-green-700;
+}
+
+.trading-button-danger {
+  @apply bg-red-600 text-white hover:bg-red-700;
+}
+
+.trading-button-secondary {
+  @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+}
+
+.stock-row {
+  @apply flex items-center justify-between p-3 border-b border-gray-100 hover:bg-gray-50 transition-colors;
+}
+
+.profit-positive {
+  @apply text-green-600 font-medium;
+}
+
+.profit-negative {
+  @apply text-red-600 font-medium;
+}
+
+.profit-neutral {
+  @apply text-gray-600;
+}
+
+/* Dark mode styles */
+.dark .trading-card {
+  @apply bg-gray-800 border-gray-700;
+}
+
+.dark .trading-button-primary {
+  @apply bg-blue-600 hover:bg-blue-700;
+}
+
+.dark .trading-button-secondary {
+  @apply bg-gray-700 hover:bg-gray-600 text-gray-200;
+}
+
+.dark .stock-row {
+  @apply border-gray-700 hover:bg-gray-700;
+}
+
+.dark .price-up {
+  @apply text-green-400;
+}
+
+.dark .price-down {
+  @apply text-red-400;
+}
+
+.dark .price-neutral {
+  @apply text-gray-400;
+}
+
+.dark .profit-positive {
+  @apply text-green-400;
+}
+
+.dark .profit-negative {
+  @apply text-red-400;
+}
+
+.dark .profit-neutral {
+  @apply text-gray-400;
+}
+
+/* Dark mode body */
+.dark body {
+  @apply bg-gray-900 text-gray-100;
+}
+
+/* Dark mode header */
+.dark header {
+  @apply bg-gradient-to-r from-blue-800 to-blue-900 border-blue-900;
+}
+
+/* Dark mode inputs */
+.dark input, .dark select {
+  @apply bg-gray-700 border-gray-600 text-gray-100;
+}
+
+.dark input:focus, .dark select:focus {
+  @apply border-blue-500 ring-blue-500;
+}
+
+/* Dark mode tables */
+.dark table {
+  @apply text-gray-100;
+}
+
+.dark th {
+  @apply text-gray-300;
+}
+
+.dark td {
+  @apply text-gray-100;
+}
+
+/* Dark mode skeleton loaders */
+.dark .animate-pulse {
+  @apply bg-gray-700;
+}

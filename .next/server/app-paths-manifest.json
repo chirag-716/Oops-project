@@ -1,0 +1,7 @@
+{
+  "/page": "app/page.js",
+  "/api/stocks/route": "app/api/stocks/route.js",
+  "/api/portfolio/route": "app/api/portfolio/route.js",
+  "/api/transactions/route": "app/api/transactions/route.js",
+  "/api/trade/route": "app/api/trade/route.js"
+}
